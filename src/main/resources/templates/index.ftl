@@ -6,5 +6,5 @@
 <br>
 <p>hello ${name?if_exists?html}</p>
 
-
+<a href="/products">To products</a>
 </@c.page>
