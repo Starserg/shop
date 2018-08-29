@@ -2,8 +2,11 @@
 <@c.page>
 
 <div>Products:</div>
+    <#list products as product>
 <div>
-    <b>${products.name}</b>
+    <b>${product.name}</b>
 </div>
-
+    <#else>
+No products
+    </#list>
 </@c.page>
