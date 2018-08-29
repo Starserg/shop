@@ -4,5 +4,7 @@
     <input type="text" name="name">
 </form>
 <br>
-<p>hello ${name?if_exists}</p>
+<p>hello ${name?if_exists?html}</p>
+
+
 </@c.page>

@@ -1,15 +1,26 @@
 package ru.iss.shop.domain;
 
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDate;
 
-@Table
+@Entity
 public class History {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private Long userID;
     private Long productID;
     private Integer price;
     private Integer number;
     private LocalDate date;
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
 
     public Long getUserID() {
         return userID;
