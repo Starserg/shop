@@ -14,14 +14,10 @@ public class ProductsController {
     @Autowired
     private ProductRepository repository;
 
-
     @GetMapping("/products")
     public String getProducts(Model model) {
         Iterable<Product> products = repository.findAll();
         model.addAttribute("products", products);
         return "products";
     }
-
-
-
 }
