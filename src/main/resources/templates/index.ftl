@@ -1,5 +1,6 @@
 <#import "parts/common.ftl" as c>
 <@c.page>
+<#include "parts/nav.ftl">
 <form method="get" action="/greeting">
     <input type="text" name="name">
 </form>
