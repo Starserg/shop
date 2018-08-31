@@ -6,6 +6,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import ru.iss.shop.Exception.EmailAlreadyExistException;
+import ru.iss.shop.Exception.NicknameAlreadyExistException;
+import ru.iss.shop.domain.User;
 import ru.iss.shop.service.UserService;
 
 
@@ -21,11 +24,19 @@ public class RegistrationController {
     }
 
 
-    @PostMapping("/register")
-    public String register(@RequestParam String email, @RequestParam String name, Model model) {
+    @PostMapping("/registration")
+    public String register(User user, Model model) {
+        try {
+            userService.addUser(user);
+        } catch (EmailAlreadyExistException e) {
+            model.addAttribute("message", e.getMessage());
+            return "registration";
+        } catch (NicknameAlreadyExistException e) {
+            model.addAttribute("message", e.getMessage());
+            return "registration";
+        }
 
-        userService.sendMail(email, "your name: " + name);
-        return "registration";
-
+        userService.sendMail(user.getEmail(), "your name: " + user.getName());
+        return "login";
     }
 }
