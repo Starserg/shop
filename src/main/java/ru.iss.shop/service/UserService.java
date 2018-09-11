@@ -14,6 +14,7 @@ import ru.iss.shop.domain.User;
 import ru.iss.shop.repository.UserRepository;
 
 import java.util.Collections;
+import java.util.UUID;
 
 
 @Service
@@ -39,14 +40,30 @@ public class UserService implements UserDetailsService {
         }
 
         user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setActivated(false);
+        user.setActivationCode(UUID.randomUUID().toString());
         user.setRoles(Collections.singleton(Role.USER));
 
         userRepository.save(user);
     }
 
 
-    public void sendMail(String email, String message) {
-        mailSender.send(email, message);
+    public void sendActivationMail(User user) {
+        String message = "Если Вы регистрируетесь на портале PLATOPLATA, просим Вас перейти по ссылке для подтверждения почты: http://localhost:8080/activation/" + user.getActivationCode();
+        mailSender.send(user.getEmail(), message);
+    }
+
+
+    public boolean activateUser(String activationCode) {
+        User user = userRepository.findByActivationCode(activationCode);
+        if (user != null) {
+            user.setActivated(true);
+            userRepository.save(user);
+            return true;
+        }
+        else {
+            return false;
+        }
     }
 
     @Override
