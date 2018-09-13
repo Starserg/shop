@@ -23,8 +23,15 @@ public class ProductsController {
     private ProductRepository productRepository;
 
     @GetMapping("/products")
-    public String getProducts(Model model) {
-        Iterable<Product> products = productRepository.findAll();
+    public String getProducts(@RequestParam(required = false, defaultValue = "") String filter, Model model) {
+        Iterable<Product> products;
+        if (filter != null && !filter.isEmpty()) {
+            products = productRepository.findAllByName(filter);
+            model.addAttribute("filter", filter);
+        } else {
+            products = productRepository.findAll();
+        }
+        productRepository.findAll();
         model.addAttribute("products", products);
         return "products";
     }

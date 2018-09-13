@@ -1,14 +1,12 @@
 <#import "parts/common.ftl" as c>
 <@c.page>
     <#include "parts/nav.ftl">
-
-
   <div class="container">
+      <#include "parts/search.ftl">
       <div>Products:</div>
       <div class="card-columns">
     <#list products as product>
         <div>
-
             <div class="card">
                 <div class="row justify-content-center">
                     <div class="">
