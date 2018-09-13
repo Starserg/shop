@@ -4,7 +4,7 @@
  <div class="container-fluid" id="content">
      <div class="card bg-light mx-auto" style="max-width: 400px; min-height: 400px">
          <article class="card-body mx-auto">
-             <h5>${message?if_exists}</h5>
+             <h5>${(message?if_exists)}</h5>
              <h4 class="card-title mt-3 text-center">Войти</h4>
              <form method="post" action="/login">
                  <div class="form-group input-group">

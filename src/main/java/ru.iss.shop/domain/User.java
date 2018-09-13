@@ -49,7 +49,6 @@ public class User implements UserDetails {
         this.nickname = nickname;
     }
 
-
     public String getPassword() {
         return password;
     }
@@ -118,5 +117,9 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public boolean isAdmin() {
+        return getRoles().contains(Role.ADMIN);
     }
 }

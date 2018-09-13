@@ -1,3 +1,7 @@
+ul, li {
+    padding: 0;
+    margin: 0;
+}
 .logo {
     background-image: url("static/image/head.jpg");
 }
@@ -9,4 +13,31 @@
 .btn-header {
     width: 100%;
     border-radius: 20%;
+}
+
+.user-menu {z-index: 1000;
+    display: none;
+    position: absolute;
+    color: #f8f9fa;
+    width: 100%;
+    background-color: #6c757d;
+}
+
+.user-menu a {
+    color:#f8f9fa;
+}
+
+ul.user-menu > li {
+    display: block;
+}
+
+.menu:hover {
+    display: block;
+}
+
+div.menu:hover > ul.user-menu {
+    display: block;
+}
+
+.add-product-form {
 }

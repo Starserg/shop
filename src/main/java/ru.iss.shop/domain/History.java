@@ -8,8 +8,11 @@ public class History {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private Long userID;
-    private Long productID;
+
+    @OneToOne
+    private User user;
+    @OneToOne
+    private Product product;
     private Integer price;
     private Integer number;
     private LocalDate date;
@@ -22,24 +25,20 @@ public class History {
         this.id = id;
     }
 
-    public Long getUserID() {
-        return userID;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserID(Long userID) {
-        this.userID = userID;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public Long getProductID() {
-        return productID;
+    public Product getProduct() {
+        return product;
     }
 
-    public void setProductID(Long productID) {
-        this.productID = productID;
-    }
-
-    public Integer getPrice() {
-        return price;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public void setPrice(Integer price) {
@@ -61,4 +60,9 @@ public class History {
     public void setDate(LocalDate date) {
         this.date = date;
     }
+
+    public Integer getPrice() {
+        return product.getPrice() * number;
+    }
+
 }

@@ -10,7 +10,6 @@ import ru.iss.shop.domain.Product;
 public class UserAccountController {
     @GetMapping("/userAccount")
     public String getProducts(Model model) {
-
         return "userAccount";
     }
 }

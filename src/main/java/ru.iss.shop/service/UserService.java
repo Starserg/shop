@@ -53,7 +53,6 @@ public class UserService implements UserDetailsService {
         mailSender.send(user.getEmail(), message);
     }
 
-
     public boolean activateUser(String activationCode) {
         User user = userRepository.findByActivationCode(activationCode);
         if (user != null) {

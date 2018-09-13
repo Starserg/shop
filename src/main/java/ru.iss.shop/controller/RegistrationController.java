@@ -26,14 +26,13 @@ public class RegistrationController {
 
 
     @GetMapping("/activation/{code}")
-    public String activate(Model model, @PathVariable String code){
-        if(userService.activateUser(code)){
+    public String activate(Model model, @PathVariable String code) {
+        if (userService.activateUser(code)) {
             model.addAttribute("message", "YOUR ACCOUNT WAS ACTIVATED");
-            return "redirect:/login";
-        }
-        else{
+            return "login";
+        } else {
             model.addAttribute("message", "WRONG ACTIVATION CODE");
-            return "redirect:/login";
+            return "login";
         }
     }
 
@@ -48,7 +47,11 @@ public class RegistrationController {
             model.addAttribute("message", e.getMessage());
             return "registration";
         }
+
+        model.addAttribute("message", "check your email: " + user.getEmail() + "");
         userService.sendActivationMail(user);
         return "login";
     }
+
+
 }
