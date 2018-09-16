@@ -30,9 +30,11 @@
         </div>
         <div class="col-sm-3 text-center text-light px-1 menu">
             <a href="/purchases" class="btn btn-secondary btn-header">Доставка</a>
-            <ul class="user-menu text-center">
-                <li><a class="" href="/purchases/admin">Все заказы</a></li>
-            </ul>
+            <#if isAdmin>
+                <ul class="user-menu text-center">
+                    <li><a class="" href="/purchases/admin">Все заказы</a></li>
+                </ul>
+            </#if>
         </div>
         <div class="col-sm-3 text-center text-light px-1"><a class="btn btn-secondary btn-header" href="/greeting">О
             нас</a></div>
