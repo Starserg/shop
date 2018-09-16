@@ -69,4 +69,14 @@ public class UserService implements UserDetailsService {
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         return userRepository.findByEmail(s);
     }
+
+    public void changePassword(User user, String newPassword) {
+        user.setPassword(passwordEncoder.encode(newPassword));
+        userRepository.save(user);
+    }
+
+    public void changeName(User user, String newName) {
+        user.setName(newName);
+        userRepository.save(user);
+    }
 }

@@ -29,14 +29,11 @@
                 </blockquote>
                 <div class="row justify-content-center">
                     <div class="pb-1">
-                        <a class="btn btn-secondary text-light">В корзину</a>
+                        <a href="/makeOrder/${product.id}" class="btn btn-secondary text-light">Купить</a>
                     </div>
                 </div>
-
             </div>
         </div>
-        <form method="post" action="/productToCart">
-        </form>
     <#else>
 No products
     </#list>

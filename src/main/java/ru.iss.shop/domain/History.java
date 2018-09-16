@@ -1,6 +1,7 @@
 package ru.iss.shop.domain;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.time.LocalDate;
 
 @Entity
@@ -13,9 +14,11 @@ public class History {
     private User user;
     @OneToOne
     private Product product;
+
     private Integer price;
     private Integer number;
-    private LocalDate date;
+    private String Address;
+    private Date date;
 
     public Long getId() {
         return id;
@@ -53,11 +56,19 @@ public class History {
         this.number = number;
     }
 
-    public LocalDate getDate() {
+    public String getAddress() {
+        return Address;
+    }
+
+    public void setAddress(String address) {
+        Address = address;
+    }
+
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(LocalDate date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 

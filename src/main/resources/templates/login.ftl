@@ -1,6 +1,6 @@
 <#import "parts/common.ftl" as c>
 <@c.page>
-<#include "parts/nav.ftl">
+    <#include "parts/nav.ftl">
  <div class="container-fluid" id="content">
      <div class="card bg-light mx-auto" style="max-width: 400px; min-height: 400px">
          <article class="card-body mx-auto">
