@@ -7,17 +7,17 @@
                 <form method="post" action="/addProduct" class="add-product-form" enctype="multipart/form-data">
                     <div class="form-group">
                         <label for="product-name">Name</label>
-                        <input name="name" type="text" class="form-control" id="product-name" placeholder="name">
+                        <input name="name" type="text" class="form-control" id="product-name" placeholder="name" minlength="2" maxlength="50">
                     </div>
                     <div class="form-group">
                         <label for="product-description">description</label>
                         <textarea name="description" class="form-control" id="product-description"
-                                  placeholder="description"></textarea>
+                                  placeholder="description" minlength="2" maxlength="50"></textarea>
                     </div>
                     <div class="form-group">
                         <label for="product-description">Price</label>
                         <input name="price" type="number" class="form-control" id="product-description"
-                               placeholder="price">
+                               placeholder="price" min="1" max="100000">
                     </div>
                     <div class="form-group">
                         <label for="product-image">Image</label>
