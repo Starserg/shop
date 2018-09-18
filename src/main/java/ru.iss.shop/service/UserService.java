@@ -49,8 +49,13 @@ public class UserService implements UserDetailsService {
 
 
     public void sendActivationMail(User user) {
-        String message = "Если Вы регистрируетесь на портале PLATOPALATA, просим Вас перейти по ссылке для подтверждения почты: http://localhost:8080/activation/" + user.getActivationCode();
-        mailSender.send(user.getEmail(), message);
+        try {
+            String message = "Если Вы регистрируетесь на портале PLATOPALATA, просим Вас перейти по ссылке для подтверждения почты: http://localhost:8080/activation/" + user.getActivationCode();
+            mailSender.send(user.getEmail(), message);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     public boolean activateUser(String activationCode) {
