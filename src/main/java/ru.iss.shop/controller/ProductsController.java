@@ -32,7 +32,6 @@ public class ProductsController {
         } else {
             products = productRepository.findAll();
         }
-        productRepository.findAll();
         model.addAttribute("products", products);
         return "products";
     }
